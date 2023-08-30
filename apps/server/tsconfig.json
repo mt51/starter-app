@@ -1,7 +1,10 @@
 {
-  "extends": "tsconfig/server.json",
+  "extends": "@tsconfig/node-lts/tsconfig.json",
   "compilerOptions": {
-    "plugins": [{ "name": "next" }]
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "outDir": "dist"
   },
   "include": ["**/*.ts"],
   "exclude": ["node_modules"]

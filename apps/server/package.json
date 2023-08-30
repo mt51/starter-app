@@ -3,13 +3,18 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3001",
+    "dev": "tsc ./app.ts -p ./tsconfig.json",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "devDependencies": {
+    "@tsconfig/node-lts": "^18.12.5",
     "@types/bcryptjs": "^2.4.2",
+    "@types/koa": "^2.13.8",
+    "@types/koa-bodyparser": "^4.3.10",
+    "@types/koa-router": "^7.4.4",
+    "@types/koa__cors": "^4.0.0",
     "@types/node": "^17.0.45",
     "@typescript-eslint/eslint-plugin": "^6.5.0",
     "eslint": "^8.47.0",
@@ -24,14 +29,19 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
+    "@koa/cors": "^4.0.0",
     "@prisma/client": "5.2.0",
     "bcryptjs": "^2.4.3",
     "koa": "^2.14.2",
+    "koa-bodyparser": "^4.4.1",
     "koa-router": "^12.0.0",
     "koa-static": "^5.0.0",
     "koa-view": "^2.1.4",
     "minimist": "^1.2.8",
-    "nunjucks": "^3.2.4"
+    "nunjucks": "^3.2.4",
+    "reflect-metadata": "^0.1.13",
+    "routing-controllers": "^0.10.4",
+    "typedi": "^0.10.0"
   },
   "prisma": {
     "seed": "ts-node --require tsconfig-paths/register prisma/seed.ts"
