@@ -1,12 +1,15 @@
 import {
+  JsonController,
   Get,
 } from 'routing-controllers'
-import { Inject, Service } from 'typedi'
+import { Service } from 'typedi'
 
 @Service()
+@JsonController()
 export class ApplicationController {
   @Get('/ping')
-  public async listAll() {
+  public async ping() {
+    console.log('ping')
     return 'pong'
   }
 }
