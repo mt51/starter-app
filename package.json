@@ -15,5 +15,8 @@
     "turbo": "latest"
   },
   "packageManager": "pnpm@8.6.10",
-  "name": "hawk"
+  "name": "hawk",
+  "dependencies": {
+    "typescript": "^5.2.2"
+  }
 }
