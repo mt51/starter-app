@@ -3,11 +3,10 @@ lockfileVersion: '6.0'
 importers:
 
   .:
-    dependencies:
-      typescript:
-        specifier: ^5.2.2
-        version: 5.2.2
     devDependencies:
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^6.5.0
+        version: 6.5.0(@typescript-eslint/parser@6.5.0)(eslint@8.47.0)(typescript@5.2.2)
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -23,14 +22,14 @@ importers:
       prettier:
         specifier: ^3.0.2
         version: 3.0.2
-      tsconfig:
-        specifier: workspace:*
-        version: link:packages/tsconfig
       turbo:
         specifier: latest
         version: 1.10.13
+      typescript:
+        specifier: ^5.2.2
+        version: 5.2.2
       vite:
-        specifier: ^4.4.5
+        specifier: ^4.4.9
         version: 4.4.9
 
   apps/client:
@@ -42,7 +41,7 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
       ui:
-        specifier: workspace*
+        specifier: link:../../packages/ui
         version: link:../../packages/ui
     devDependencies:
       '@types/react':
@@ -6091,6 +6090,7 @@ packages:
     resolution: {integrity: sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==}
     engines: {node: '>=14.17'}
     hasBin: true
+    dev: true
 
   /uglify-js@3.17.4:
     resolution: {integrity: sha512-T9q82TJI9e/C1TAxYvfb16xO120tMVFZrGA3f9/P4424DNu6ypK103y0GPFVa17yotwSyZW5iYXgjYHkGrJW/g==}
