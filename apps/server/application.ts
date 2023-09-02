@@ -8,7 +8,6 @@ import koaSend from 'koa-send';
 import cors from '@koa/cors';
 import { useContainer, useKoaServer } from 'routing-controllers';
 import { Container, Service } from 'typedi';
-import { createServer } from 'vite';
 import { ApplicationController } from './controller';
 
 @Service()
@@ -75,6 +74,7 @@ export default class App {
   }
 
   public async startDev() {
+    const { createServer } = (await import('vite')).default;
     const viteServer = await createServer({
       root: path.resolve(__dirname, '../client'),
       logLevel: 'error',
