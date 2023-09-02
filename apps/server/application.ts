@@ -55,7 +55,7 @@ export default class App {
   }
 
   public async startProd() {
-    const template = fs.readFileSync('dist/index.html', 'utf-8');
+    const template = fs.readFileSync('index.html', 'utf-8');
     this.app?.use(async (ctx, next) => {
       if (ctx.path.startsWith('/assets')) {
         await koaSend(ctx, ctx.path, { root: path.resolve(__dirname) });

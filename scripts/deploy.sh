@@ -9,7 +9,6 @@ echo "安装依赖"
 
 cd ~/sourcecode/hawk
 
-echo $(pwd)
 # 安装依赖
 pnpm i
 
