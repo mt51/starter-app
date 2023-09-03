@@ -98,10 +98,10 @@ export default class App {
           template = await viteServer.transformIndexHtml(ctx.path, template);
           ctx.type = 'text/html';
           ctx.body = template;
-        } catch (e: any) {
-          viteServer && viteServer.ssrFixStacktrace(e);
-          console.log(e.stack);
-          ctx.throw(500, e.stack);
+        } catch (e: unknown) {
+          viteServer && viteServer.ssrFixStacktrace(e as Error);
+          console.log((e as Error).stack);
+          ctx.throw(500, (e as Error).stack || (e as Error).message);
         }
       }
     });

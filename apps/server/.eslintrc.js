@@ -1,13 +1,28 @@
 module.exports = {
-  "extends": ["standard-with-typescript", "plugin:prettier/recommended"]
   env: {
     es2021: true,
-    node: true
+    node: true,
   },
+  plugins: ['prettier'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:n/recommended',
+    'prettier',
+  ],
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
   },
   ignorePatterns: ['.eslintrc.js'],
-  rules: {}
-}
+  rules: {
+    'prettier/prettier': 'error',
+    'n/no-missing-import': 'off',
+    'n/no-extraneous-import': [
+      'error',
+      {
+        allowModules: ['vite'],
+      },
+    ],
+  },
+};
