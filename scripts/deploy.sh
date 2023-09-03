@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ ! -d "~/sourcecode" ]; then
+  mkdir ~/sourcecode
+fi
+
 echo "开始更新代码"
 rm -rf ~/sourcecode/hawk;
 
@@ -22,9 +26,13 @@ rm -rf ~/sourcecode/hawk/apps/client/dist
 pnpm run build
 
 echo "开始部署"
+
+if [ ! -d "~/apps" ]; then
+  mkdir ~/app
+fi
+
 rm -rf ~/apps/hawk
 
-mkdir ~/apps/hawk
 
 echo "复制资源"
 # 复制构建资源
@@ -32,6 +40,7 @@ cp -r ~/sourcecode/hawk/apps/server/dist/. ~/apps/hawk
 cp -r ~/sourcecode/hawk/apps/client/dist/. ~/apps/hawk
 cp -r ~/sourcecode/hawk/apps/server/package.json ~/apps/hawk/package.json
 cp -r ~/sourcecode/hawk/pnpm-lock.yaml ~/apps/hawk/pnpm.yaml
+cp -r ~/sourcecode/hawk/.npmrc ~/apps/hawk/.npmrc
 
 # 启动
 echo "安装运行时依赖"
@@ -40,4 +49,5 @@ pnpm i
 
 # 启动
 echo "启动应用"
-node ~/apps/hawk/start.js
+pm2 stop "hawk"
+pm2 start ~/apps/hawk/start.js --name "hawk
