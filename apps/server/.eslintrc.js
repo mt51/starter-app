@@ -24,5 +24,6 @@ module.exports = {
         allowModules: ['vite'],
       },
     ],
+    'n/no-process-exit': 'off',
   },
 };
