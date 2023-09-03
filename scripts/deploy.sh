@@ -1,6 +1,9 @@
 #!/bin/bash
 
-if [ ! -d "~/sourcecode" ]; then
+SourceCodeFolder=~/sourcecode
+AppFolder=~/apps
+
+if [ ! -d "$SourceCodeFolder" ]; then
   mkdir ~/sourcecode
 fi
 
@@ -25,8 +28,8 @@ pnpm run build
 
 echo "开始部署"
 
-if [ ! -d "~/apps" ]; then
-  mkdir ~/app
+if [ ! -d "$AppFolder" ]; then
+  mkdir ~/apps
 fi
 
 rm -rf ~/apps/hawk
@@ -50,4 +53,4 @@ pnpm i
 # 启动
 echo "启动应用"
 pm2 stop "hawk"
-pm2 start ~/apps/hawk/start.js --name "hawk
+pm2 start ~/apps/hawk/start.js --name "hawk"
