@@ -16,8 +16,6 @@ cd ~/sourcecode/hawk
 # 安装依赖
 pnpm i
 
-sleep 2
-
 echo "开始构建"
 rm -rf ~/sourcecode/hawk/apps/server/dist
 rm -rf ~/sourcecode/hawk/apps/client/dist
@@ -32,6 +30,8 @@ if [ ! -d "~/apps" ]; then
 fi
 
 rm -rf ~/apps/hawk
+
+mkdir ~/apps/hawk
 
 
 echo "复制资源"
